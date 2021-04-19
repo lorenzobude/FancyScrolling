@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+*, ::before, ::after {
+  box-sizing:border-box;
+}
+
+body {
+  height: 10000px;
+  background: #000;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+a:not(.logo):hover {
+  opacity: .7;
+}
+
+h1 {margin: 0;}
+h2 {margin: 0;}
+
+.wrapper {
+  z-index: 1;
+  position: relative;
+}
+
+.header {
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, .7);
+  text-align: center;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.links {
+  margin-top: .25rem;
+}
+
+.links a {
+  font-size: .8rem;
+  padding: .25em 1em;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+}
+
+canvas {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.block {
+  z-index: 2;
+  position: fixed;  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 2rem;
+  width: 100%;
+  color: #FFF;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.block.intro {
+  text-align: center;
+}
+
+.block.show {
+  opacity: 1;
+  z-index: 3;
+}
+
+.btn {
+  display: inline-block;
+  background: #801f4f;
+  padding: .25em 1.5em;
+  border-radius: 5px;
+  margin: 1em 0 0;
+}
+
+.loader {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  transition: opacity .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader i {
+  color: #666;
+  font-size: 50px;
+}
+
+.loaded .loader {
+  opacity: 0;
+}
+
+#scroll-down {
+  z-index: 2;
+  position: absolute;
+  top: 90vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: #FFF;
+  opacity: .5;
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+  transition: opacity .3s;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  60% {transform: translateY(-15px);}
+}
+
+#scroll-indicator {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: #FFF;
+}
+
+@media (min-width: 768px) {
+
+  body {
+    font-size: 30px;
+  }
+
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .links {
+    margin: 0;
+    display: flex;
+  }
+
+  .links a {
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+
+  .block:not(.intro) {
+    left: 5%;
+    transform: translate(0, -50%);
+    width: 60%;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+}
